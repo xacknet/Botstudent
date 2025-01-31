@@ -83,7 +83,7 @@ def send_schedule(update: Update, context: CallbackContext) -> None:
 
 # Основная функция
 if __name__ == "__main__":
-    updater = Updater("YOUR_BOT_TOKEN")
+    updater = Updater("7922622721:AAFTTVY7fUOry1ivapQ24bT-YtFzB7JHNBw")
     dp = updater.dispatcher
     
     dp.add_handler(CommandHandler("start", start))
