@@ -81,9 +81,14 @@ def send_schedule(update: Update, context: CallbackContext) -> None:
     except FileNotFoundError:
         query.message.reply_text("Расписание не найдено. Попробуйте позже.")
 
-# Основная функция
-if __name__ == "__main__":
-    updater = Updater("7922622721:AAFTTVY7fUOry1ivapQ24bT-YtFzB7JHNBw")
+# Команда запуска бота
+def main():
+    token = os.getenv("7922622721:AAFTTVY7fUOry1ivapQ24bT-YtFzB7JHNBw")  # Используем переменную окружения для токена
+    if not token:
+        print("Ошибка: не найден TELEGRAM_BOT_TOKEN")
+        return
+    
+    updater = Updater(token)
     dp = updater.dispatcher
     
     dp.add_handler(CommandHandler("start", start))
@@ -95,3 +100,6 @@ if __name__ == "__main__":
     
     updater.start_polling()
     updater.idle()
+
+if __name__ == "__main__":
+    main()
